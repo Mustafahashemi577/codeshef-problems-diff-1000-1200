@@ -1,0 +1,33 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Discrepancies_In_The_Voters_List
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner scan = new Scanner (System.in);
+		int n1 = scan.nextInt();
+		int n2 = scan.nextInt();
+		int n3 = scan.nextInt();
+		Map <Integer,Integer> lists = new HashMap<>();
+		for(int i =0;i<(n1+n2+n3);i++){
+		    int c = scan.nextInt();
+		    if(!lists.containsKey(c)){
+		        lists.put(c,1);
+		    }
+		    else {
+		        lists.put(c,((lists.get(c))+1));
+		    }
+		}
+		ArrayList<Integer> finallist = new ArrayList();
+		for(int i : lists.keySet()){
+		    if((lists.get(i))>1)
+		    finallist.add(i);
+		}
+		Collections.sort(finallist);
+		System.out.println(finallist.size());
+		for(int j : finallist)
+		System.out.println(j);
+	}
+}
